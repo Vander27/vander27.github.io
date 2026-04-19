@@ -174,6 +174,11 @@ def generate_html(apps):
                 <div class="contact-label">Email</div>
                 <div class="contact-value">vanderlei.cuiaba@gmail.com</div>
             </a>
+            <a href="https://www.linkedin.com/in/vanderlei-campos-649172378/" target="_blank" rel="noopener noreferrer" class="contact-card fade-in">
+                <div class="contact-icon">💼</div>
+                <div class="contact-label">LinkedIn</div>
+                <div class="contact-value">Vanderlei Campos</div>
+            </a>
         </div>
     </div>
 </section>
@@ -184,6 +189,7 @@ def generate_html(apps):
             <a href="https://play.google.com/store/apps/dev?id=4917547327012028018" target="_blank" rel="noopener noreferrer">Google Play</a>
             <a href="https://wa.me/5585981478929" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             <a href="mailto:vanderlei.cuiaba@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/vanderlei-campos-649172378/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
         <p class="footer-copy">&copy; 2026 Vanderlei Campos. Todos os direitos reservados.</p>
     </div>
