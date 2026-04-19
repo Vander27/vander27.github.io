@@ -20,8 +20,13 @@
         @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
         .avatar{width:120px;height:120px;border-radius:50%;border:3px solid var(--accent);box-shadow:0 0 30px var(--accent-glow);margin-bottom:24px;object-fit:cover}
         .hero-badge{display:inline-block;background:rgba(108,99,255,0.15);color:var(--accent-light);padding:6px 16px;border-radius:20px;font-size:.8rem;font-weight:500;letter-spacing:.5px;margin-bottom:16px;border:1px solid rgba(108,99,255,0.25)}
-        h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1px;margin-bottom:12px;background:linear-gradient(135deg,var(--text-primary) 0%,var(--accent-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .hero-sub{font-size:1.1rem;color:var(--text-secondary);max-width:500px;margin:0 auto 32px}
+        .brand-name{font-size:.85rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;opacity:0;animation:fadeInUp .8s ease-out .2s forwards}
+        h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1px;margin-bottom:8px;background:linear-gradient(135deg,var(--text-primary) 0%,var(--accent-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:0;animation:fadeInUp .8s ease-out .4s forwards}
+        .typing-wrapper{height:28px;margin-bottom:28px;overflow:hidden}
+        .typing-text{font-size:1rem;color:var(--accent-light);font-weight:400;border-right:2px solid var(--accent-light);white-space:nowrap;overflow:hidden;width:0;animation:typing 3s steps(40) 1s forwards,blink .7s step-end infinite}
+        @keyframes typing{from{width:0}to{width:100%}}
+        @keyframes blink{50%{border-color:transparent}}
+        .hero-sub{font-size:1.05rem;color:var(--text-secondary);max-width:520px;margin:0 auto 32px;opacity:0;animation:fadeInUp .8s ease-out .6s forwards}
         .hero-stats{display:flex;justify-content:center;gap:40px;margin-bottom:36px}
         .stat{text-align:center}
         .stat-number{font-size:1.8rem;font-weight:700;color:var(--accent-light)}
@@ -68,8 +73,18 @@
         .back-to-top{position:fixed;bottom:30px;right:30px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s ease;z-index:100;box-shadow:0 4px 15px var(--accent-glow)}
         .back-to-top.visible{opacity:1;visibility:visible}
         .back-to-top:hover{transform:translateY(-3px);box-shadow:0 8px 25px var(--accent-glow)}
-        .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+        .fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
         .fade-in.visible{opacity:1;transform:translateY(0)}
+        .fade-in-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
+        .fade-in-left.visible{opacity:1;transform:translateX(0)}
+        .fade-in-right{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease}
+        .fade-in-right.visible{opacity:1;transform:translateX(0)}
+        .fade-in-scale{opacity:0;transform:scale(0.9);transition:opacity .6s ease,transform .6s ease}
+        .fade-in-scale.visible{opacity:1;transform:scale(1)}
+        .delay-1{transition-delay:.1s}
+        .delay-2{transition-delay:.2s}
+        .delay-3{transition-delay:.3s}
+        .delay-4{transition-delay:.4s}
     </style>
 </head>
 <body>
@@ -78,9 +93,11 @@
     <div class="container">
         <div class="hero-content">
             <img src="avatar.png" alt="Vanderlei Campos" class="avatar">
+            <div class="brand-name">VJC Technology</div>
             <div class="hero-badge">Desenvolvedor Mobile</div>
             <h1>Vanderlei Campos</h1>
-            <p class="hero-sub">Analista de Sistemas criando aplicativos Android que facilitam o dia a dia das pessoas.</p>
+            <div class="typing-wrapper"><p class="typing-text">Transformando ideias em aplicativos que fazem a diferença.</p></div>
+            <p class="hero-sub">Desenvolvimento de apps Android com foco em performance, design e experiência do usuário.</p>
             <div class="hero-stats">
                 <div class="stat"><div class="stat-number">3</div><div class="stat-label">Apps Publicados</div></div>
                 <div class="stat"><div class="stat-number">Android</div><div class="stat-label">Plataforma</div></div>
@@ -95,10 +112,10 @@
 </header>
 <section id="apps">
     <div class="container">
-        <p class="section-title">Portfólio</p>
-        <h2 class="section-heading">Meus Aplicativos</h2>
+        <p class="section-title fade-in">Portfólio</p>
+        <h2 class="section-heading fade-in">Meus Aplicativos</h2>
         <div class="apps-grid">
-            <div class="app-card fade-in">
+            <div class="app-card fade-in-left">
                 <div class="app-header">
                     <div class="app-icon" style="background:linear-gradient(135deg,#00c896,#008c69)">🛒</div>
                     <div class="app-info">
@@ -114,7 +131,7 @@
                     Baixar na Google Play
                 </a>
             </div>
-            <div class="app-card fade-in">
+            <div class="app-card fade-in-right">
                 <div class="app-header">
                     <div class="app-icon" style="background:linear-gradient(135deg,#ff8a50,#b26038)">🎬</div>
                     <div class="app-info">
@@ -130,7 +147,7 @@
                     Baixar na Google Play
                 </a>
             </div>
-            <div class="app-card fade-in">
+            <div class="app-card fade-in-left">
                 <div class="app-header">
                     <div class="app-icon" style="background:linear-gradient(135deg,#4fa3ff,#3772b2)">✝️</div>
                     <div class="app-info">
@@ -151,8 +168,8 @@
 </section>
 <section id="about">
     <div class="container">
-        <p class="section-title">Sobre</p>
-        <h2 class="section-heading">Quem sou eu</h2>
+        <p class="section-title fade-in">Sobre</p>
+        <h2 class="section-heading fade-in">Quem sou eu</h2>
         <div class="about-content fade-in">
             <p class="about-text">
                 Sou <strong>Vanderlei Campos</strong>, Analista de Sistemas formado pela
@@ -175,25 +192,25 @@
 </section>
 <section id="contato">
     <div class="container">
-        <p class="section-title">Contato</p>
-        <h2 class="section-heading">Fale Comigo</h2>
+        <p class="section-title fade-in">Contato</p>
+        <h2 class="section-heading fade-in">Fale Comigo</h2>
         <div class="contact-grid">
-            <a href="https://wa.me/5585981478929" target="_blank" rel="noopener noreferrer" class="contact-card fade-in">
+            <a href="https://wa.me/5585981478929" target="_blank" rel="noopener noreferrer" class="contact-card fade-in-scale delay-1">
                 <div class="contact-icon">💬</div>
                 <div class="contact-label">WhatsApp</div>
                 <div class="contact-value">+55 85 98147-8929</div>
             </a>
-            <a href="tel:+5585981478929" class="contact-card fade-in">
+            <a href="tel:+5585981478929" class="contact-card fade-in-scale delay-2">
                 <div class="contact-icon">📱</div>
                 <div class="contact-label">Telefone</div>
                 <div class="contact-value">+55 85 98147-8929</div>
             </a>
-            <a href="mailto:vanderlei.cuiaba@gmail.com" class="contact-card fade-in">
+            <a href="mailto:vanderlei.cuiaba@gmail.com" class="contact-card fade-in-scale delay-3">
                 <div class="contact-icon">✉️</div>
                 <div class="contact-label">Email</div>
                 <div class="contact-value">vanderlei.cuiaba@gmail.com</div>
             </a>
-            <a href="https://www.linkedin.com/in/vanderlei-campos-649172378/" target="_blank" rel="noopener noreferrer" class="contact-card fade-in">
+            <a href="https://www.linkedin.com/in/vanderlei-campos-649172378/" target="_blank" rel="noopener noreferrer" class="contact-card fade-in-scale delay-4">
                 <div class="contact-icon">💼</div>
                 <div class="contact-label">LinkedIn</div>
                 <div class="contact-value">Vanderlei Campos</div>
@@ -218,7 +235,7 @@
 </button>
 <script>
     const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});},{threshold:.1});
-    document.querySelectorAll('.fade-in').forEach(e=>o.observe(e));
+    document.querySelectorAll('.fade-in,.fade-in-left,.fade-in-right,.fade-in-scale').forEach(e=>o.observe(e));
     const btn=document.getElementById('backToTop');
     window.addEventListener('scroll',()=>{btn.classList.toggle('visible',window.scrollY>400)});
     btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
