@@ -1,0 +1,29 @@
+[
+  {
+    "id": "com.sobramais.app",
+    "name": "Sobra Mais",
+    "icon": "🛒",
+    "category": "Compras",
+    "color": "#00c896",
+    "description": "Controle suas compras e economize mais! O Sobra Mais é o app completo para organizar suas compras no supermercado. Com lista inteligente, centenas de produtos cadastrados por categorias, entrada por voz, controle de gastos em tempo real, e a possibilidade de compartilhar ou imprimir suas listas como PDF profissional.",
+    "features": ["Lista Inteligente", "Entrada por Voz", "Controle de Gastos", "Exportar PDF", "Compartilhar", "Múltiplas Listas"]
+  },
+  {
+    "id": "com.macefo.mini",
+    "name": "Macefo",
+    "icon": "🎬",
+    "category": "Entretenimento",
+    "color": "#ff8a50",
+    "description": "O portal definitivo para um mundo repleto de histórias emocionantes! Explore categorias diversas: romances, dramas, fantasias e comédias. Com navegação simples, catálogo em constante expansão e conteúdos adicionados regularmente. Entretenimento gratuito ao alcance de todos.",
+    "features": ["Mini Séries", "Catálogo Variado", "Conteúdo Grátis", "Atualizações Frequentes", "Navegação Intuitiva"]
+  },
+  {
+    "id": "com.vida.biblia.campos",
+    "name": "Bíblia Sagrada - Cristo Vive",
+    "icon": "✝️",
+    "category": "Livros e Referências",
+    "color": "#4fa3ff",
+    "description": "Leitura simples, rápida e acessível das Escrituras Sagradas em qualquer momento. Navegue por livros, capítulos e versículos. Copie e compartilhe versículos nas redes sociais, assista vídeos cristãos e fortaleça sua fé diariamente. Ideal para estudos bíblicos, devocional diário e evangelização.",
+    "features": ["Bíblia Completa", "Copiar Versículos", "Compartilhar", "Vídeos Cristãos", "Interface Simples"]
+  }
+]
