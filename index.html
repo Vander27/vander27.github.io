@@ -3,10 +3,608 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vander Apps</title>
+    <title>Vanderlei Campos | Desenvolvedor de Apps</title>
+    <meta name="description" content="Portfólio de Vanderlei Campos - Desenvolvedor de aplicativos mobile Android">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #1f1f35;
+            --accent: #6c63ff;
+            --accent-light: #8b83ff;
+            --accent-glow: rgba(108, 99, 255, 0.3);
+            --text-primary: #e8e8f0;
+            --text-secondary: #9494a8;
+            --text-muted: #6b6b80;
+            --border: #2a2a3e;
+            --green: #00c896;
+            --blue: #4fa3ff;
+            --orange: #ff8a50;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(108, 99, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(79, 163, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(0, 200, 150, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
+            margin-bottom: 24px;
+            object-fit: cover;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(108, 99, 255, 0.15);
+            color: var(--accent-light);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(108, 99, 255, 0.25);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 36px;
+        }
+
+        .stat { text-align: center; }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-light);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .scroll-indicator svg { width: 20px; height: 20px; }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-8px); }
+            60% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .section-heading {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 48px;
+            letter-spacing: -0.5px;
+        }
+
+        #apps { padding: 80px 0; }
+
+        .apps-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .app-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 20px 20px 0 0;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .app-card:hover {
+            border-color: rgba(108, 99, 255, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-card:hover::before { opacity: 1; }
+
+        .app-card:nth-child(1)::before { background: linear-gradient(90deg, var(--green), var(--blue)); }
+        .app-card:nth-child(2)::before { background: linear-gradient(90deg, var(--orange), #ff5078); }
+        .app-card:nth-child(3)::before { background: linear-gradient(90deg, var(--blue), var(--accent)); }
+
+        .app-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .app-icon-sobra { background: linear-gradient(135deg, #00c896, #00a67d); }
+        .app-icon-macefo { background: linear-gradient(135deg, #ff8a50, #ff5078); }
+        .app-icon-biblia { background: linear-gradient(135deg, #4fa3ff, #6c63ff); }
+
+        .app-info { flex: 1; }
+
+        .app-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .app-category {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .app-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .app-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 28px;
+        }
+
+        .feature-tag {
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--accent-light);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            border: 1px solid rgba(108, 99, 255, 0.15);
+        }
+
+        .app-card:nth-child(1) .feature-tag {
+            background: rgba(0, 200, 150, 0.1);
+            color: var(--green);
+            border-color: rgba(0, 200, 150, 0.15);
+        }
+
+        .app-card:nth-child(2) .feature-tag {
+            background: rgba(255, 138, 80, 0.1);
+            color: var(--orange);
+            border-color: rgba(255, 138, 80, 0.15);
+        }
+
+        .app-card:nth-child(3) .feature-tag {
+            background: rgba(79, 163, 255, 0.1);
+            color: var(--blue);
+            border-color: rgba(79, 163, 255, 0.15);
+        }
+
+        .playstore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            transition: all 0.25s ease;
+        }
+
+        .playstore-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--accent-glow);
+        }
+
+        .playstore-btn svg { width: 20px; height: 20px; }
+
+        #about { padding: 80px 0; }
+
+        .about-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 48px;
+        }
+
+        .about-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        .about-text strong { color: var(--text-primary); }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .tech-tag {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--accent-light); }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+        }
+
+        @media (max-width: 640px) {
+            .app-card { padding: 28px; }
+            .app-header { flex-direction: column; align-items: flex-start; }
+            .hero-stats { gap: 24px; }
+            .about-content { padding: 28px; }
+            .footer-links { flex-direction: column; gap: 12px; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
-    <h1>Vander Apps</h1>
-    <p>Desenvolvedor de aplicativos mobile.</p>
+
+<div class="bg-grid"></div>
+
+<!-- HERO -->
+<header>
+    <div class="container">
+        <div class="hero-content">
+            <img src="https://avatars.githubusercontent.com/u/38666926?v=4" alt="Vanderlei Campos" class="avatar">
+            <div class="hero-badge">Desenvolvedor Mobile</div>
+            <h1>Vanderlei Campos</h1>
+            <p class="hero-sub">
+                Analista de Sistemas criando aplicativos Android que facilitam o dia a dia das pessoas.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Apps Publicados</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Android</div>
+                    <div class="stat-label">Plataforma</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2026</div>
+                    <div class="stat-label">Ativos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <span>Ver apps</span>
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+        </svg>
+    </div>
+</header>
+
+<!-- APPS -->
+<section id="apps">
+    <div class="container">
+        <p class="section-title">Portfólio</p>
+        <h2 class="section-heading">Meus Aplicativos</h2>
+
+        <div class="apps-grid">
+
+            <!-- SOBRA MAIS -->
+            <div class="app-card fade-in">
+                <div class="app-header">
+                    <div class="app-icon app-icon-sobra">🛒</div>
+                    <div class="app-info">
+                        <h3 class="app-name">Sobra Mais</h3>
+                        <span class="app-category">Compras</span>
+                    </div>
+                </div>
+                <p class="app-description">
+                    Controle suas compras e economize mais! O Sobra Mais é o app completo para organizar
+                    suas compras no supermercado. Com lista inteligente, centenas de produtos cadastrados por
+                    categorias, entrada por voz, controle de gastos em tempo real, e a possibilidade de
+                    compartilhar ou imprimir suas listas como PDF profissional.
+                </p>
+                <div class="app-features">
+                    <span class="feature-tag">Lista Inteligente</span>
+                    <span class="feature-tag">Entrada por Voz</span>
+                    <span class="feature-tag">Controle de Gastos</span>
+                    <span class="feature-tag">Exportar PDF</span>
+                    <span class="feature-tag">Compartilhar</span>
+                    <span class="feature-tag">Múltiplas Listas</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.sobramais.app"
+                   target="_blank" rel="noopener noreferrer" class="playstore-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302L16.698 12l3.302-2.493zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+                    </svg>
+                    Baixar na Google Play
+                </a>
+            </div>
+
+            <!-- MACEFO -->
+            <div class="app-card fade-in">
+                <div class="app-header">
+                    <div class="app-icon app-icon-macefo">🎬</div>
+                    <div class="app-info">
+                        <h3 class="app-name">Macefo</h3>
+                        <span class="app-category">Entretenimento</span>
+                    </div>
+                </div>
+                <p class="app-description">
+                    O portal definitivo para um mundo repleto de histórias emocionantes! Explore categorias
+                    diversas: romances, dramas, fantasias e comédias. Com navegação simples, catálogo em
+                    constante expansão e conteúdos adicionados regularmente. Entretenimento gratuito
+                    ao alcance de todos, transforme seus momentos de lazer em experiências inesquecíveis.
+                </p>
+                <div class="app-features">
+                    <span class="feature-tag">Mini Séries</span>
+                    <span class="feature-tag">Catálogo Variado</span>
+                    <span class="feature-tag">Conteúdo Grátis</span>
+                    <span class="feature-tag">Atualizações Frequentes</span>
+                    <span class="feature-tag">Navegação Intuitiva</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.macefo.mini"
+                   target="_blank" rel="noopener noreferrer" class="playstore-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302L16.698 12l3.302-2.493zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+                    </svg>
+                    Baixar na Google Play
+                </a>
+            </div>
+
+            <!-- BÍBLIA -->
+            <div class="app-card fade-in">
+                <div class="app-header">
+                    <div class="app-icon app-icon-biblia">✝️</div>
+                    <div class="app-info">
+                        <h3 class="app-name">Bíblia Sagrada - Cristo Vive</h3>
+                        <span class="app-category">Livros e Referências</span>
+                    </div>
+                </div>
+                <p class="app-description">
+                    Leitura simples, rápida e acessível das Escrituras Sagradas em qualquer momento.
+                    Navegue por livros, capítulos e versículos. Copie e compartilhe versículos nas redes sociais,
+                    assista vídeos cristãos e fortaleça sua fé diariamente. Ideal para estudos bíblicos,
+                    devocional diário e evangelização.
+                </p>
+                <div class="app-features">
+                    <span class="feature-tag">Bíblia Completa</span>
+                    <span class="feature-tag">Copiar Versículos</span>
+                    <span class="feature-tag">Compartilhar</span>
+                    <span class="feature-tag">Vídeos Cristãos</span>
+                    <span class="feature-tag">Interface Simples</span>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.vida.biblia.campos"
+                   target="_blank" rel="noopener noreferrer" class="playstore-btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302L16.698 12l3.302-2.493zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+                    </svg>
+                    Baixar na Google Play
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="container">
+        <p class="section-title">Sobre</p>
+        <h2 class="section-heading">Quem sou eu</h2>
+
+        <div class="about-content fade-in">
+            <p class="about-text">
+                Sou <strong>Vanderlei Campos</strong>, Analista de Sistemas formado pela
+                <strong>Universidade Estácio de Sá - RJ</strong>, atualmente em Caucaia - CE.
+                Desenvolvo aplicativos mobile com foco em resolver problemas reais do dia a dia,
+                desde organização de compras até entretenimento e espiritualidade.
+                Meus apps estão publicados na Google Play Store e em constante evolução.
+            </p>
+            <div class="tech-stack">
+                <span class="tech-tag">Flutter</span>
+                <span class="tech-tag">Dart</span>
+                <span class="tech-tag">Android</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">C#</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Git</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-links">
+            <a href="https://github.com/Vander27" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://play.google.com/store/apps/dev?id=4917547327012028018" target="_blank" rel="noopener noreferrer">Google Play</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Vanderlei Campos. Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
