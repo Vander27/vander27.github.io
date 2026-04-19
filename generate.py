@@ -99,7 +99,7 @@ def generate_html(apps):
 <header>
     <div class="container">
         <div class="hero-content">
-            <img src="https://avatars.githubusercontent.com/u/38666926?v=4" alt="Vanderlei Campos" class="avatar">
+            <img src="avatar.png" alt="Vanderlei Campos" class="avatar">
             <div class="hero-badge">Desenvolvedor Mobile</div>
             <h1>Vanderlei Campos</h1>
             <p class="hero-sub">Analista de Sistemas criando aplicativos Android que facilitam o dia a dia das pessoas.</p>
