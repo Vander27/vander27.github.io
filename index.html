@@ -64,7 +64,10 @@
         .footer-links a{color:var(--text-muted);text-decoration:none;font-size:.85rem;transition:color .2s}
         .footer-links a:hover{color:var(--accent-light)}
         .footer-copy{color:var(--text-muted);font-size:.78rem}
-        @media(max-width:640px){.app-card{padding:28px}.app-header{flex-direction:column;align-items:flex-start}.hero-stats{gap:24px}.about-content{padding:28px}.footer-links{flex-direction:column;gap:12px}}
+        @media(max-width:640px){.app-card{padding:28px}.app-header{flex-direction:column;align-items:flex-start}.hero-stats{gap:24px}.about-content{padding:28px}.footer-links{flex-direction:column;gap:12px}header{min-height:auto;padding:80px 0 40px}.scroll-indicator{display:none}.avatar{width:100px;height:100px}.contact-grid{flex-direction:column}}
+        .back-to-top{position:fixed;bottom:30px;right:30px;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:none;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s ease;z-index:100;box-shadow:0 4px 15px var(--accent-glow)}
+        .back-to-top.visible{opacity:1;visibility:visible}
+        .back-to-top:hover{transform:translateY(-3px);box-shadow:0 8px 25px var(--accent-glow)}
         .fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
         .fade-in.visible{opacity:1;transform:translateY(0)}
     </style>
@@ -210,9 +213,15 @@
         <p class="footer-copy">&copy; 2026 Vanderlei Campos. Todos os direitos reservados.</p>
     </div>
 </footer>
+<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+</button>
 <script>
     const o=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});},{threshold:.1});
     document.querySelectorAll('.fade-in').forEach(e=>o.observe(e));
+    const btn=document.getElementById('backToTop');
+    window.addEventListener('scroll',()=>{btn.classList.toggle('visible',window.scrollY>400)});
+    btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 </script>
 </body>
 </html>
